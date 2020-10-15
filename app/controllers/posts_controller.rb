@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   
-  
   before_action :authenticate_member!, except: [:new, :create]
   
   def new

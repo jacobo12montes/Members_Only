@@ -5,6 +5,9 @@
 <ul id="posts">
   <% @posts.each do |post| %>
     
+  <% if current_member %>
+          <p>Author: <%= post.member.name %></p>
+        <% end %>
     <li>
     <label for = 'title'>Post Title:</label>  <%= link_to post.title, post_path(post) %>
   </li>
@@ -27,4 +30,12 @@
 
 
 
+</ul>
+<%= link_to "Create a New Post", new_post_path, class: "new_post" %>
+  <% if current_member %>  
+    <%= link_to "Sign out", destroy_member_session_path, :method => :delete, class: "destroy_member_session" %>
+  <%else%>
+    <%= link_to "Sign up", new_member_registration_path,  class: "new_member_registration" %>
+    <%= link_to "Login", new_member_session_path,  class: "new_member_session" %>
+<% end %>
 

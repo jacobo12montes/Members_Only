@@ -1,3 +1,5 @@
-<h4><%= @post.title %></h4>
+<h4><%= Post.all %></h4>
 <p><%= @post.body %></p>
+<p>Author_id: <%= @post.member_id %> </p>
 <%= link_to "<< Back to Post List", posts_path %>
+ 

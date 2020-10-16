@@ -1,3 +1,14 @@
+<div class = "center" >
 <h4><%= @post.title %></h4>
 <p><%= @post.body %></p>
-<%= link_to "<< Back to Post List", posts_path %>
+<% if current_member %>
+          <p>Author: <%= post.member.name %></p>
+        <% end %><%= link_to "<< Back to Post List", posts_path %>
+<%= link_to "Create a New Post", new_post_path, class: "new_post" %>
+  <% if current_member %>  
+    <%= link_to "Sign out", destroy_member_session_path, :method => :delete, class: "destroy_member_session" %>
+  <%else%>
+    <%= link_to "Sign up", new_member_registration_path,  class: "new_member_registration" %>
+    <%= link_to "Login", new_member_session_path,  class: "new_member_session" %>
+<% end %>
+</div>

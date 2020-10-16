@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
-  
-   before_action :authenticate_member!, only: [:new, :create]
-  
+  before_action :authenticate_member!, only: %i[new create]
+
   def index
     @posts = Post.all
   end
@@ -11,7 +10,6 @@ class PostsController < ApplicationController
   end
 
   def create
-
     @post = current_member.posts.build(post_params)
 
     if @post.save
@@ -24,7 +22,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
   end
-
 
   private
 

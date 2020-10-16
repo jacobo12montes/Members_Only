@@ -10,8 +10,15 @@
   </head>
 
   <body>
+  
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
     <%= yield %>
+  <% if current_member %>  
+      <%= link_to "Sign out", destroy_member_session_path, :method => :delete, class: "destroy_member_session" %>
+    <%else%>
+      <%= link_to "Sign up", new_member_registration_path,  class: "new_member_registration" %>
+      <%= link_to "Login", new_member_session_path,  class: "new_member_session" %>
+  <% end %>  
   </body>
 </html>

@@ -1,0 +1,8 @@
+<div class = "center" >
+<h4><%= @post.title %></h4>
+<p><%= @post.body %></p>
+<% if current_member %>
+          <p>Author: <%= post.member.name %></p>
+        <% end %><%= link_to "<< Back to Post List", posts_path %>
+<%= link_to "Create a New Post", new_post_path, class: "new_post" %>
+</div>

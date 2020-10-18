@@ -1,0 +1,14 @@
+<div class = "post-index center" > 
+<h1>All Posts</h1>
+<ul id="posts">
+  <% @posts.each do |post| %>
+  <% if current_member %>
+          <p>Author: <%= post.member.name %></p>
+        <% end %>
+    <li>
+      <%= link_to post.title, post_path(post) %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Create a New Post", new_post_path, class: "new_post" %>
+</div>

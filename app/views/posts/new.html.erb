@@ -1,0 +1,13 @@
+<div class = "center" >
+<h1>CREATE A NEW POST</h1>
+<%= form_for(@post) do |f| %>
+  <ul>
+  <% @post.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  Title <br /><%= f.text_field :title %><br /><br />
+  Body <br /><%= f.text_area :body %><br /><br />
+  <%= f.submit %>
+<% end %>
+</div>
